@@ -1,0 +1,3 @@
+[submodule "frontend/crud-aplication"]
+	path = frontend/crud-aplication
+	url = https://github.com/Salvador-G/CRUD-MRCASH.git
