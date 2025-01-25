@@ -1,0 +1,14 @@
+# Ignorar node_modules en ambos frontend y backend
+backend/node_modules/
+frontend/crud-aplication/node_modules/
+
+# Ignorar archivos de configuración específicos de IDEs
+.vscode/
+.idea/
+
+# Archivos de log
+*.log
+
+# Archivos de configuración de sistemas operativos
+.DS_Store
+Thumbs.db
