@@ -36,6 +36,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente en tu máquina:
     DB_USER=root
     DB_PASSWORD=salvador2025
     DB_NAME=empresa
+    DB_DIALECT=mysql
     PORT=8000
 
 4. Ejecutar el servidor:
@@ -61,7 +62,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente en tu máquina:
 
 ## Tecnologias
 
-### Backtend
+### Backend
     Node.js: Entorno de ejecución para JavaScript.
     Express: Framework para crear la API RESTful.
     Sequelize: ORM para interactuar con la base de datos MySQL.
