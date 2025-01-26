@@ -7,7 +7,7 @@ Este es un proyecto CRUD (Crear, Leer, Actualizar, Eliminar) completo que utiliz
 El proyecto está dividido en dos carpetas principales:
 
 - **`backend/`**: Contiene el servidor Node.js con Express, la configuración de la base de datos MySQL y el ORM Sequelize.
-- **`frontend/`**: Contiene la aplicación frontend construida con Vue.js que interactúa con el backend a través de Axios.
+- **`crud-aplication/`**: Contiene la aplicación frontend construida con Vue.js que interactúa con el backend a través de Axios.
 
 ## Requisitos
 
