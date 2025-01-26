@@ -9,6 +9,9 @@ El proyecto está dividido en dos carpetas principales:
 - **`backend/`**: Contiene el servidor Node.js con Express, la configuración de la base de datos MySQL y el ORM Sequelize.
 - **`crud-aplication/`**: Contiene la aplicación frontend construida con Vue.js que interactúa con el backend a través de Axios.
 
+Y la carpeta:
+- **`db_mysql/`**: COntiene el archivo .sql para la creacion de la base de datos
+
 ## Requisitos
 
 Antes de empezar, asegúrate de tener instalado lo siguiente en tu máquina:
