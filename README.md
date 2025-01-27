@@ -71,6 +71,9 @@ Antes de empezar, asegúrate de tener instalado lo siguiente en tu máquina:
     Sequelize: ORM para interactuar con la base de datos MySQL.
     MySQL: Sistema de gestión de bases de datos relacional.
     dotenv: Gestión de variables de entorno.
+    Joi: Biblioteca de validación.
+
 ### Frontend
     Vue.js: Framework para construir interfaces de usuario interactivas.
     Axios: Biblioteca para hacer peticiones HTTP.
+    Vuetify: Biblioteca de componentes  que permite crear interfaces de usuario.

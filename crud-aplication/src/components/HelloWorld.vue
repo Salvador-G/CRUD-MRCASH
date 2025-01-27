@@ -4,21 +4,21 @@
 
     <h3>Para usuarios mayores de 18 años</h3>
     <br>
-    <v-btn @click="() => { resetForm(); dialogUserForm = true; }" color="primary">
+    <v-btn @click="() => { resetForm(); dialogUserForm = true; }" color="primary" prepend-icon="mdi-plus">
       Insertar usuario
     </v-btn>
 
     <v-dialog v-model="dialogUserForm" width="auto">
-      <v-card max-width="400" prepend-icon="mdi-update">
+      <v-card max-width="400" >
         <v-card-title>
           <span class="headline">{{ isEditing ? 'Editar Usuario' : 'Nuevo Usuario' }}</span>
         </v-card-title>
         <v-card-text>
           <v-form @submit.prevent="submitForm">
-            <v-text-field v-model="newUser.nombre" label="Nombre" required></v-text-field>
-            <v-text-field v-model="newUser.correo" label="Correo Electrónico" required></v-text-field>
-            <v-text-field v-model="newUser.edad" label="Edad" type="number" required></v-text-field>
-            <v-btn type="submit" color="green">{{ isEditing ? 'Actualizar Usuario' : 'Añadir Usuario' }}</v-btn>
+            <v-text-field v-model="newUser.nombre" label="Nombre" :rules="nameRules" required></v-text-field>
+            <v-text-field v-model="newUser.correo" label="Correo Electrónico" :rules="emailRules" required></v-text-field>
+            <v-text-field v-model="newUser.edad" label="Edad" type="number" ></v-text-field>
+            <v-btn type="submit" color="green" >{{ isEditing ? 'Actualizar Usuario' : 'Añadir Usuario' }}</v-btn>
           </v-form>
         </v-card-text>
         <v-card-actions>
@@ -33,8 +33,8 @@
 
       <!-- Agregar columna de acciones (Editar/Eliminar) -->
       <template v-slot:[`item.actions`]="{ item }">
-        <v-btn small color="blue" @click="editUser(item)">Editar</v-btn>
-        <v-btn small color="red" @click="deleteUser(item.id)">Eliminar</v-btn>
+        <v-btn small color="blue" @click="editUser(item)" icon="mdi-text-box-edit"></v-btn>
+        <v-btn small color="red" @click="deleteUser(item.id)" icon="mdi-delete"></v-btn>
       </template>
     </v-data-table>
   </div>
@@ -53,13 +53,25 @@ export default {
     // Estado
     const dialogUserForm = ref(false);
     const users = ref([]);
+    const formValid = ref(false);
     const isEditing = ref(false);
     const headers = [
-      { title: 'ID', align: 'start', key: 'id' },
+      //{ title: 'ID', align: 'start', key: 'id' },
       { title: 'Nombre', align: 'start', key: 'nombre' },
       { title: 'Correo', align: 'start', key: 'correo' },
       { title: 'Edad', align: 'end', key: 'edad' },
       { title: 'Acciones', align: 'center', key: 'actions' }
+    ];
+
+    // Reglas de validación para cada campo
+    const nameRules = [
+      v => !!v || 'El nombre es requerido',
+      v => (v && v.length >= 3) || 'El nombre debe tener al menos 3 caracteres',
+    ];
+
+    const emailRules = [
+      v => !!v || 'El correo es requerido',
+      v => /.+@.+\..+/.test(v) || 'El correo debe ser válido',
     ];
 
     // Estado del formulario
@@ -148,6 +160,9 @@ export default {
     return {
       dialogUserForm,
       resetForm,
+      formValid,
+      nameRules,
+      emailRules,
       isEditing,
       users,
       newUser,
