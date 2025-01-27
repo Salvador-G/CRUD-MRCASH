@@ -4,7 +4,7 @@
 
     <h3>Para usuarios mayores de 18 años</h3>
     <br>
-    <v-btn @click="dialogUserForm = true" color="primary">
+    <v-btn @click="() => { resetForm(); dialogUserForm = true; }" color="primary">
       Insertar usuario
     </v-btn>
 
@@ -67,8 +67,17 @@ export default {
     const newUser = ref({
       nombre: '',
       correo: '',
-      edad: 0,
+      edad: null,
     })
+
+    const resetForm = () => {
+      newUser.value = {
+        nombre: '',
+        correo: '',
+        edad: null,
+      };
+      isEditing.value = false;
+    };
 
     const openAddDialog = () => {
       isEditing.value = false;
@@ -138,6 +147,7 @@ export default {
 
     return {
       dialogUserForm,
+      resetForm,
       isEditing,
       users,
       newUser,
